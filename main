@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo "./targetCode 以下に変換し提出するファイルを配置してください。"
+echo "空ファイルは処理されません"
+echo "準備ができたら、キーを入力してください。"
+read foo
+
+echo "対象のファイルは以下です"
+ls ./targetCode/*
+
+echo "1行目: プログラムの説明を入力"
+read description
+echo "2行目: 名前を入力"
+read editorName
+#editorName = "作成者: ${editorName}"
+echo "3行目: 日付を入力"
+read dateData
+#dateData = "作成日: ${dateData}"
+
+sed -i '1s/^/$description\n/' ./targetCode/*
+sed -i '2s/^/$editorName\n/' ./targetCode/*
+sed -i '3s/^/$dateData\n/' ./targetCode/*
